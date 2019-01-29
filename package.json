@@ -1,0 +1,31 @@
+{
+    "name": "node-red-contrib-ews-json",
+    "version": "0.0.1",
+    "description": "This node provides a simple wrapper for node-ews.",
+    "main": "ews/ews.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/unirobot/node-red-contrib-ews-json.git"
+    },
+    "keywords": [
+        "ews",
+        "node-red"
+    ],
+    "author": "unirobot",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/unirobot/node-red-contrib-ews-json/issues"
+    },
+    "homepage": "https://github.com/unirobot/node-red-contrib-ews-json#readme",
+    "dependencies": {
+        "node-ews": "^3.2.4"
+    },
+    "node-red": {
+        "nodes": {
+            "ews": "ews/ews.js"
+        }
+    }
+}

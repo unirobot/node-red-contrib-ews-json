@@ -1,0 +1,37 @@
+<script type="text/x-red" data-help-name="EWS">
+<p>Exchange Webサービス（EWS）APIに接続し、データの保存や取得ができます。</p>
+
+<h3>入力</h3>
+    <dl class="message-properties">
+        <dt>ewsConfig
+            <span class="property-type">object</span>
+        </dt>
+        <dd>  EWS APIの認証情報を設定します。 </dd>
+        <dt>ewsFunction
+            <span class="property-type">string</span>
+        </dt>
+        <dd> EWS APIで実行したい関数名を設定します。</dd>
+        <dt>ewsArgs
+            <span class="property-type">object</span>
+        </dt>
+        <dd> EWS APIで実行したい関数の引数を設定します。 </dd>
+    </dl>
+
+<h3>出力</h3>
+
+    <dl class="message-properties">
+        <dt>ewsResult 
+            <span class="property-type">object</span>
+        </dt>
+        <dd>EWS APIで実行された結果がJSONで取得できます。</dd>
+    </dl>
+
+<h3>詳細</h3>
+    <p>Exchange Webサービス（EWS）APIを実行できます。APIの詳細については
+        <a href="https://docs.microsoft.com/ja-jp/exchange/client-developer/exchange-web-services/develop-web-service-clients-for-exchange">こちら</a>を確認ください。</p>
+
+<h3>リファレンス</h3>
+    <ul>
+        <li><a href="https://www.npmjs.com/package/node-ews">node-ews</a> - 設定項目などはこちらのReadmeを参照してください。</li>
+    </ul>
+</script>

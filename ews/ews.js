@@ -2,7 +2,7 @@ module.exports = function (RED) {
     "use strict";
     const EWS = require('node-ews');
 
-    function EWSNode(config) {
+    function EwsNode(config) {
         RED.nodes.createNode(this, config);
         var node = this;
         this.on('input', function (msg) {
@@ -18,5 +18,5 @@ module.exports = function (RED) {
                 });
         });
     }
-    RED.nodes.registerType("EWS", EWSNode);
+    RED.nodes.registerType("ews", EwsNode);
 }

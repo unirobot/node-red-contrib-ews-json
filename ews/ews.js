@@ -14,9 +14,10 @@ module.exports = function (RED) {
                     node.send(msg);
                 })
                 .catch(err => {
+                    node.error(err.message);
                     console.log(err.stack);
                 });
         });
     }
     RED.nodes.registerType("ews", EwsNode);
-}
+};

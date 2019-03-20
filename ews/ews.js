@@ -11,10 +11,13 @@ module.exports = function (RED) {
             ews.run(msg.ewsFunction, msg.ewsArgs)
                 .then(result => {
                     msg.ewsResult = result;
+                    msg.status = "success";
                     node.send(msg);
                 })
                 .catch(err => {
-                    node.error(err.message);
+                    msg.payload = err.message;
+                    msg.status = "error";
+                    node.send(msg);
                     console.log(err.stack);
                 });
         });

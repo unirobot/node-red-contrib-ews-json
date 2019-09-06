@@ -39,7 +39,6 @@ module.exports = function (RED) {
                 msg.payload = err.message;
                 msg.status = "error";
                 node.send(msg);
-                console.log(err.stack);
             });
     }
 

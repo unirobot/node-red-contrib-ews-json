@@ -2,29 +2,8 @@ module.exports = function (RED) {
     "use strict";
     const EWS = require('node-ews');
     const fs = require('fs');
-
-    function EwsNode(config) {
-        RED.nodes.createNode(this, config);
-        var node = this;
-        this.on('input', function (msg) {
-            createTempDir(node, msg);
-        });
-    }
-
-    function createTempDir(node, msg){
-        const dir = RED.settings.userDir + "/ews";
-        if(fs.existsSync(dir)){
-            msg.ewsConfig.temp = dir;
-            run(node, msg);
-        }else{
-            fs.mkdir(dir, (err) => {
-                if (!err){
-                    msg.ewsConfig.temp = dir;
-                }
-                run(node, msg);
-            });
-        }
-    }
+    const util = require("./util");
+    const dir = RED.settings.userDir + "/ews";
 
     function run(node, msg){
         const ews = new EWS(msg.ewsConfig);
@@ -42,5 +21,25 @@ module.exports = function (RED) {
             });
     }
 
+    function EwsNode(n) {
+        RED.nodes.createNode(this, n);
+        var node = this;
+        node.clear = n.clear;
+
+        this.on('input', function (msg) {
+            try{
+                if(node.clear){
+                    util.deleteDir(dir);
+                    run(node,util.createTempDir(dir, msg));
+                }else{
+                    run(node, util.createTempDir(dir, msg));
+                }
+            } catch(err){
+                msg.payloadd = err.message;
+                msg.status = "error";
+                node.send(msg);
+            }
+        });
+    }
     RED.nodes.registerType("ews", EwsNode);
 };

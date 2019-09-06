@@ -1,0 +1,40 @@
+<script type="text/x-red" data-help-name="ews">
+    <p>Execute the function of EWS API and receive execution results with Json.</p>
+
+    <h3>Inputs</h3>
+        <dl class="message-properties">
+            <dt>ewsConfig
+                <span class="property-type">object</span>
+            </dt>
+            <dd> EWS API Connection Config. </dd>
+            <dt>ewsFunction
+                <span class="property-type">string</span>
+            </dt>
+            <dd> EWS API function name. </dd>
+            <dt>ewsArgs
+                <span class="property-type">object</span>
+            </dt>
+            <dd> EWS API function args. </dd>
+        </dl>
+
+    <h3>Outputs</h3>
+
+        <dl class="message-properties">
+            <dt>ewsResult
+                <span class="property-type">object</span>
+            </dt>
+            <dd>EWS API function result.</dd>
+        </dl>
+
+    <h3>Details</h3>
+        <p>Set up the authentication information necessary for connection with <code>msg.ewsConfig</code>.
+            Since there are multiple authentication methods, please check References.
+            <code>msg.ewsFunction</code> and <code>msg.ewsArgs</code> are settings related to functions of the EWS API.</p>
+
+        <p>In <code>msg.ewsResult</code>, pass the execution result of EWS API in Json.</p>
+
+    <h3>References</h3>
+        <ul>
+            <li><a href="https://www.npmjs.com/package/node-ews">Node-ews</a> - Click here for details</li>
+        </ul>
+</script>
